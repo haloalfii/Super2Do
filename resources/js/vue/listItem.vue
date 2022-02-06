@@ -8,7 +8,6 @@
             </div>
             <input class="edit" value="Create a Todo template">
         </li>
-        
     </div>
 </template>
 
@@ -18,6 +17,7 @@ export default {
     props: ['item'],
     methods: {
         updateCheck() {
+            window.location.reload();
             axios.put('api/item/' + this.item.id, {
                 item: this.item
             })
@@ -31,6 +31,7 @@ export default {
             })
         },
         removeItem() {
+            window.location.reload();
             axios.delete('api/item/' + this.item.id )
             .then (response => {
                 if(response.status == 200){

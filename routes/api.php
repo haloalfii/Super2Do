@@ -25,5 +25,9 @@ Route::prefix('/item')->group(function () {
     Route::put('/{id}', [ItemController::class, 'update']);
     Route::delete('/{id}', [ItemController::class, 'destroy']);
     Route::get('/clear', [ItemController::class, 'destroyComplete']);
-    Route::get('/completed', [ItemController::class, 'completedAll']);
+    Route::get('/completed', [ItemController::class, 'completed'])->name('completed');
+    Route::get('/active', [ItemController::class, 'active'])->name('active');
+    Route::get('/count', [ItemController::class, 'count'])->name('count');
+    Route::get('/completed-all', [ItemController::class, 'completedAll']);
+    Route::get('/actived-all', [ItemController::class, 'activeAll']);
 });

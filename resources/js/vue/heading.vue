@@ -16,6 +16,7 @@ export default {
     },
     methods: {
         addItem() {
+            window.location.reload();
             if (this.item.name == ''){
                 return;
             }

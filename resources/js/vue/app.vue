@@ -3,6 +3,7 @@
         <section class="todoapp">
             <heading v-on:reloadlist="getList()"/>
             <list-view :items="items" v-on:reloadlist="getList()"/>
+            <bottom :items="items" v-on:reloadlist="getList()"/>
         </section>
     </div>
 </template>
@@ -10,15 +11,18 @@
 <script>
 import heading from "./heading"
 import listView from "./listView"
+import bottom from "./Bottom"
 
 export default {
     components: {
         heading,
-        listView
+        listView,
+        bottom
     },
     data: function(){
         return {
-            items: []
+            items: [],
+            count: []
         }
     },
     methods: {

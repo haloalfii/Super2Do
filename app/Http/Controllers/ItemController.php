@@ -117,6 +117,21 @@ class ItemController extends Controller
         return "Item Not Found";
     }
 
+    public function completed()
+    {
+        return Item::where('completed', '=', true)->orderBy('created_at', 'DESC')->get();
+    }
+
+    public function active()
+    {
+        return Item::where('completed', '=', false)->orderBy('created_at', 'DESC')->get();
+    }
+
+    public function count()
+    {
+        return Item::all()->count();
+    }
+
     public function completedAll()
     {
         $items = Item::all();
@@ -126,6 +141,20 @@ class ItemController extends Controller
                 $Change = Item::find($id);
                 $Change->completed = true;
                 $Change->completed_at = Carbon::now();
+                $Change->save();
+            }
+        }
+    }
+
+    public function activeAll()
+    {
+        $items = Item::all();
+        foreach ($items as $item) {
+            if ($item->completed == true) {
+                $id = $item->id;
+                $Change = Item::find($id);
+                $Change->completed = false;
+                $Change->completed_at = null;
                 $Change->save();
             }
         }
