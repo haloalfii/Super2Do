@@ -17,3 +17,8 @@ mix.js("resources/js/app.js", "public/js")
         //
     ])
     .vue();
+
+mix.styles(
+    ["public/assets/css/base.css", "public/assets/css/index.css"],
+    "public/assets/css/app.css"
+);
