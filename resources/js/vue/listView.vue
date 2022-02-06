@@ -3,9 +3,9 @@
         <input id="toggle-all" class="toggle-all" type="checkbox">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-            <li v-for="(item, index) in items" :key="index">
-                <list-item :item="item"/>
-            </li>
+            <div v-for="(item, index) in items" :key="index">
+                <list-item :item="item" v-on:itemchanged="$emit('reloadlist')"/>
+            </div>
         </ul>
     </section>
 </template>

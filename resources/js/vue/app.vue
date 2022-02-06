@@ -1,8 +1,8 @@
 <template>
     <div>
         <section class="todoapp">
-            <heading/>
-            <list-view :items="items"/>
+            <heading v-on:reloadlist="getList()"/>
+            <list-view :items="items" v-on:reloadlist="getList()"/>
         </section>
     </div>
 </template>
